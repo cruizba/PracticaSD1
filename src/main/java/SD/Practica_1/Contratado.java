@@ -1,99 +1,98 @@
 package SD.Practica_1;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
 
 @Entity
-@Table(name="Contratado")
 public class Contratado {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="id_contratado")
-	private int id;
+	private int idContratado;
 	
-	
-	@Column(name="nombre", nullable=false)
 	private String nombre;
-	
-	@Column(name="apellidos", nullable=false)
 	private String apellidos;
-	
-	@Column(name="tel_fijo", nullable=false)
-	private String fijo;
-	
-	@Column(name="tel_movil", nullable=false)
+	private String telFijo;
 	private String telMovil;
-	
-	@Column(name="tipo", nullable=false)
 	private String tipo;
-
+	
 	public Contratado(){
-		//Used by SpringData
+		
 	}
 	
-	public Contratado(String nombre, String apellidos, String telFijo, String telMovil, String tipo){
+	public Contratado(String nombre, String apellidos, String telFijo, String telMovil, String tipo) {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.fijo = telFijo;
+		this.telFijo = telFijo;
 		this.telMovil = telMovil;
 		this.tipo = tipo;
 	}
 	
-	public int getId() {
-		return id;
+	
+	public int getIdContratado() {
+		return idContratado;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+
+	public void setIdContratado(int idContratado) {
+		this.idContratado = idContratado;
 	}
+
 
 	public String getNombre() {
 		return nombre;
 	}
 
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 
 	public String getApellidos() {
 		return apellidos;
 	}
 
+
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
 
-	public String getFijo() {
-		return fijo;
+
+	public String getTelFijo() {
+		return telFijo;
 	}
 
-	public void setFijo(String fijo) {
-		this.fijo = fijo;
+
+	public void setTelFijo(String telFijo) {
+		this.telFijo = telFijo;
 	}
+
 
 	public String getTelMovil() {
 		return telMovil;
 	}
 
+
 	public void setTelMovil(String telMovil) {
 		this.telMovil = telMovil;
 	}
 
+
 	public String getTipo() {
 		return tipo;
 	}
+
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 	
 	public String toString(){
-		return String.format("Contratado[nombre='%s', apellido='%s', Telefono Fijo='%s', Movil ='%s', Tipo='%s']", nombre, apellidos, fijo, telMovil, tipo);
+		return String.format("Contratado[nombre='%s', apellido='%s', Telefono Fijo='%s', Movil ='%s', Tipo='%s']", nombre, apellidos, telFijo, telMovil, tipo);
 	}
 	
 }
