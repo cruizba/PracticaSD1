@@ -1,4 +1,4 @@
-package SD.Practica_1;
+package SD.Practica_1.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,10 +78,6 @@ public class Especie {
 		this.areas = areas;
 	}
 
-	public String toString(){
-		return String.format("Especie[nombreComun='%s', nombreCientifico='%s', Tipo='%s']", nombreComun, nombreCientifico, tipo);
-	}
-
 	public String getImageUrl() {
 		return imageUrl;
 	}
@@ -89,6 +85,12 @@ public class Especie {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
+	
+	public String toString(){
+		return String.format("Especie[nombreComun='%s', nombreCientifico='%s', Tipo='%s']", nombreComun, nombreCientifico, tipo);
+	}
+
+
 
 
 }

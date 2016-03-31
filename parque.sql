@@ -93,3 +93,5 @@ CREATE UNIQUE INDEX `idContratado_UNIQUE` ON `parque`.`Contratado` (`id_contrata
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO `contratado` VALUES (1,'Raul','González Escribano','916438765','654678765','Vigilante'),(2,'Victoria','Jiménez Sánchez','913653487','643986754','Cuidadora'),(3,'Fernando','Álvarez Toledo','934572837','659345968','Vigilante');

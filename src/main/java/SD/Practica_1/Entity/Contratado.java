@@ -1,4 +1,4 @@
-package SD.Practica_1;
+package SD.Practica_1.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

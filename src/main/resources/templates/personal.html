@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Personal</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<link th:href="@{/libs/bootstrap.min.css}" href="../../libs/bootstrap.min.css" rel="stylesheet"></link>
+	<link th:href="@{/styles/main.css}" href="../../styles/main.css" rel="stylesheet"></link>
+	<script th:src="@{/libs/jquery-2.2.1.min.js}"  src="../../libs/jquery-2.2.1.min.js"></script>
+	<script th:src="@{/libs/bootstrap.min.js}"  src="../../libs/bootstrap.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'></link>
+</head>
+<body>
+
+	<h1>Personal / Página de prueba</h1>
+
+
+	<p th:each="contratado : ${contratados}">
+		<span th:text="'Nombre: ' + ${contratado.nombre}"></span><br/>
+		<span th:text="'Apellidos: ' + ${contratado.apellidos}"></span><br/>
+		<span th:text="'Teléfono Fijo: ' + ${contratado.telFijo}"></span><br/>
+		<span th:text="'Teléfono Movil: ' + ${contratado.telMovil}"></span><br/>
+		<span th:text="'Tipo: ' + ${contratado.tipo}"></span><br/>
+	</p>
+</body>
+</html>
+
