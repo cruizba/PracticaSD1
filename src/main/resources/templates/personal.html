@@ -8,18 +8,55 @@
 	<script th:src="@{/libs/bootstrap.min.js}"  src="../../libs/bootstrap.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'></link>
 </head>
-<body>
+<body style="background: url(../../img/background.jpg);">
+	<div class="container">
+		<div class="panel panel-default" id="panel">
+			<h1 class="panel-heading" id="cabecera">Contratados</h1>
+			<div class="panel-body" id="cuerpoPagina">
+				<div class="enlaceInsercion">
+					<a href="/insertarPersonal">Insertar Personal</a>	
+				</div>
+					<div class="row" th:each="contratado: ${contratados}">
+						<div class="item col-md-2">
+							<div class="thumbnail">
+								<img th:src="@{/img/anonProfile.jpg}" src="../../img/anonProfile.jpg" class="imageForInfo img-responsive img-rounded" alt="Imágen de perfil"></img>
+							</div>
+						</div>
+						<div class="item col-md-8">
+							<!-- Dato utilizado para redirigir a la edicion -->
+							<div class="idDato" th:text="${contratado.idContratado}"></div>
+							<table>
+								<tr>
+									<th>Nombre</th>
+								    <th>Apellidos</th> 
+								    <th>Teléfono Fijo</th>
+								    <th>Teléfono Móvil</th>
+								    <th>Tipo</th>
+		 						</tr>
+		 						<tr>
+		 							<td th:text="${contratado.nombre}"></td>
+		 							<td th:text="${contratado.apellidos}"></td>
+		 							<td th:text="${contratado.telFijo}"></td>
+		 							<td th:text="${contratado.telMovil}"></td>
+		 							<td th:text="${contratado.tipo}"></td>
+		 						</tr>
+							</table>
+						</div>
+						
+						<div class="item col-md-2">
+							<div class="divButton">
+								<a class="btn btn-default btn-lg" th:href="'/modificarPersonal/' + ${contratado.idContratado}">Modificar</a>
+								<a class="btn btn-default btn-lg" th:href="'/eliminarPersonalBD/' + ${contratado.idContratado}">Eliminar</a>
+							</div>
+						</div>
+					</div>
+				
+			
+			</div>
+		</div>
+	</div>
 
-	<h1>Personal / Página de prueba</h1>
-
-
-	<p th:each="contratado : ${contratados}">
-		<span th:text="'Nombre: ' + ${contratado.nombre}"></span><br/>
-		<span th:text="'Apellidos: ' + ${contratado.apellidos}"></span><br/>
-		<span th:text="'Teléfono Fijo: ' + ${contratado.telFijo}"></span><br/>
-		<span th:text="'Teléfono Movil: ' + ${contratado.telMovil}"></span><br/>
-		<span th:text="'Tipo: ' + ${contratado.tipo}"></span><br/>
-	</p>
+	
 </body>
 </html>
 
