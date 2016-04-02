@@ -8,7 +8,7 @@ package SD.Practica_1.dataBaseUsage;
 //
 //@Controller
 //public class AreaEspecieBDUsage implements CommandLineRunner{
-//	
+//	res
 //	@Autowired
 //	private AreaRepository areaRep;
 //	

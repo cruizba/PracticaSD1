@@ -19,9 +19,9 @@ public class Contratado {
 	private String telMovil;
 	private String tipo;
 	
-	public Contratado(){
+	//public Contratado(){
 		
-	}
+	//}
 	
 	public Contratado(String nombre, String apellidos, String telFijo, String telMovil, String tipo) {
 		this.nombre = nombre;
