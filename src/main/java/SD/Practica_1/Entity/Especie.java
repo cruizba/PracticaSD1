@@ -27,9 +27,9 @@ public class Especie {
 	@ManyToMany(fetch=FetchType.EAGER)
 	List<Area> areas = new ArrayList<Area>();
 	
-	//public Especie(){
+	public Especie(){
 		
-	//}
+	}
 	
 	public Especie(String nombreCientifico, String nombreComun, String tipo, String imageUrl){
 		this.nombreCientifico = nombreCientifico;

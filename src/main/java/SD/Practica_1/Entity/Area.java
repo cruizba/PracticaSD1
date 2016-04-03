@@ -25,9 +25,9 @@ public class Area {
 	@ManyToMany(mappedBy="areas", fetch=FetchType.EAGER)
 	List<Especie> especies = new ArrayList<Especie>();
 	
-	//public Area(){
+	public Area(){
 		
-	//}
+	}
 	
 	public Area(String nombreArea, String extension){
 		this.nombreArea = nombreArea;

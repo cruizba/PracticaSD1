@@ -1,4 +1,3 @@
-/*
 package SD.Practica_1.Controller;
 
 import java.util.ArrayList;
@@ -81,4 +80,3 @@ public class ContratadosController {
 	}
 	
 }
-*/
