@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import SD.Practica_1.Entity.Contratado;
 import SD.Practica_1.repository.ContratadoRepository;
@@ -79,5 +80,63 @@ public class ContratadosController {
 		return "borradoExito";
 		
 	}
+	
+	@RequestMapping("/buscarPersonalPorApellidos")
+	public String buscarPersonalPorApellidos(){
+		
+		return "buscarPersonalPorApellidos";
+		
+	}
+	
+	@RequestMapping("/buscarPersonalPorApellidosReq")
+	public String buscarPersonalPorApellidosReq(@RequestParam("apellidos") String apellidos, Model model){
+		
+		List<Contratado> contratados = conRep.findByApellidos(apellidos);
+		
+		model.addAttribute("contratados", contratados);
+		
+		return "personal";
+		
+	}
+	
+	@RequestMapping("/buscarPersonalPorNyA")
+	public String buscarPersonalPorNyA(){
+		
+		return "buscarPersonalPorNyA";
+		
+	}
+	
+	@RequestMapping("/buscarPersonalPorNyAReq")
+	public String buscarPersonalPorNyAReq(@RequestParam("nombre") String nombre,
+											@RequestParam("apellidos") String apellidos,
+											Model model){
+		
+		List<Contratado> contratados = conRep.findByNombreAndApellidos(nombre, apellidos);
+		
+		model.addAttribute("contratados", contratados);
+		
+		return "personal";
+		
+	}
+	
+	@RequestMapping("/buscarPersonalPorTipo")
+	public String buscarPersonalPorTipo(){
+		
+		return "buscarPersonalPorTipo";
+		
+	}
+	
+	@RequestMapping("/buscarPersonalPorTipoReq")
+	public String buscarPersonalPorTipo(@RequestParam("tipo") String tipo, Model model){
+		
+		List<Contratado> contratados = conRep.findByTipo(tipo);
+		
+		model.addAttribute("contratados", contratados);
+		
+		return "personal";
+		
+	}
+	
+	
 	
 }

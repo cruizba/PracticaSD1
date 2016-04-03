@@ -1,16 +1,20 @@
 package SD.Practica_1.Controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.multipart.MultipartFile;
+import SD.Practica_1.Application;
 import SD.Practica_1.Entity.Area;
 import SD.Practica_1.Entity.Especie;
 import SD.Practica_1.repository.AreaRepository;
@@ -24,6 +28,8 @@ public class EspeciesController {
 	
 	@Autowired
 	private AreaRepository areaRep;
+	
+	private final String URL_IMAGE = "/img/especies";
 	
 	private List<Especie> especies = new ArrayList<Especie>();
 	
@@ -165,6 +171,87 @@ public class EspeciesController {
 		espRep.save(especie);
 		
 		return "borradoExito";
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/upload/{num}")
+	public String provideUploadInfo(@PathVariable (value = "num") Integer num, Model model) {
+
+		Especie especie = espRep.findOne(num);
+		
+		model.addAttribute("especie", especie);
+		
+		return "subirImagenEspecie";
+	}
+	
+	@RequestMapping("/buscarEspeciePorNC")
+	public String buscarEspeciePorNC(){
+		
+		return "buscarEspeciePorNC";
+		
+	}
+	
+	@RequestMapping("/buscarEspeciePorNCReq")
+	public String buscarEspeciePorNCReq(@RequestParam("nombreComun") String nombreComun, Model model){
+		
+		List<Especie> especies = espRep.findByNombreComun(nombreComun);
+		
+		model.addAttribute("especies", especies);
+		
+		return "especies";
+		
+	}
+	
+	
+	@RequestMapping("/buscarEspeciePorTipo")
+	public String buscarEspeciePorTipo(){
+		
+		return "buscarEspeciePorTipo";
+		
+	}
+	
+	@RequestMapping("/buscarEspeciePorTipoReq")
+	public String  buscarEspeciePorTipoReq(@RequestParam("tipo") String tipo, Model model){
+		
+		List<Especie> especies = espRep.findByTipo(tipo);
+		
+		model.addAttribute("especies", especies);
+		
+		return "especies";
+		
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/upload/{num}")
+	public String handleFileUpload(@PathVariable (value ="num") Integer num,
+								   @RequestParam("file") MultipartFile file,
+								   Model model) {
+
+		if (!file.isEmpty()) {
+			try {
+				BufferedOutputStream stream = new BufferedOutputStream(
+						new FileOutputStream(new File(Application.ROOT + "/" + file.getOriginalFilename())));
+                FileCopyUtils.copy(file.getInputStream(), stream);
+				stream.close();
+				
+				//Guardamos en la base de datos la url relativa de la imagen
+				Especie especie =espRep.findOne(num);
+				especie.setImageUrl(this.URL_IMAGE + "/" + file.getOriginalFilename());
+				
+				
+				
+				espRep.save(especie);
+				
+				
+			}
+			catch (Exception e) {
+				return "errorUpload";
+			}
+		}
+		else {
+			return "errorUpload";
+		}
+
+		return "exitoUpload";
+		
 	}
 	
 }

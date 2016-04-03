@@ -12,7 +12,7 @@
 //
 //@Controller
 //public class AreaEspecieBDUsage implements CommandLineRunner{
-//	res
+//
 //	@Autowired
 //	private AreaRepository areaRep;
 //	
@@ -60,9 +60,9 @@
 //		especieRep.save(especie2);
 //		especieRep.save(especie3);
 //		
-//		Especie resEsp1 = especieRep.findByNombreComun("Sapo");
-//		Especie resEsp2 = especieRep.findByNombreComun("Sapos stubfoot");
-//		Especie resEsp3 = especieRep.findByNombreComun("Sapo del Cabo");
+//		Especie resEsp1 = especieRep.findByNombreComun("Sapo").get(0);
+//		Especie resEsp2 = especieRep.findByNombreComun("Sapos stubfoot").get(0);
+//		Especie resEsp3 = especieRep.findByNombreComun("Sapo del Cabo").get(0);
 //		
 //		Area resArea = areaRep.findByNombreArea("Rio sano");
 //		

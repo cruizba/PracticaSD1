@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Buscar Personal por nombre y apellidos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<link th:href="@{/libs/bootstrap.min.css}" href="../../libs/bootstrap.min.css" rel="stylesheet"></link>
+	<link th:href="@{/styles/main.css}" href="../../styles/main.css" rel="stylesheet"></link>
+	<script th:src="@{/libs/jquery-2.2.1.min.js}"  src="../../libs/jquery-2.2.1.min.js"></script>
+	<script th:src="@{/libs/bootstrap.min.js}"  src="../../libs/bootstrap.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'></link>
+</head>
+<body style="background: url(../../img/background.jpg);">
+	<div class="container">
+		<div class="panel panel-default" id="panel">
+			<div class="panel-heading" id="cabecera">
+				<h1><a href="/">Parque Natural</a></h1>
+				<h1>Buscar personal por nombres y apellidos</h1>
+			</div>
+			<div class="panel-body" id="cuerpoPagina">
+				<form class="form-horizontal" role="form" action="/buscarPersonalPorNyAReq" method="post" >
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="Nombre">Nombre: </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nombre" placeholder="Inserte aquí los apellidos" size="45" maxlength="45" required="required"></input>
+                        </div>
+					</div>					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="Apellidos">Apellidos: </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="apellidos" placeholder="Inserte aquí los apellidos" size="45" maxlength="45" required="required"></input>
+                        </div>
+					</div>
+					<div class="divButton">
+							<button class="btn btn-default btn-lg" type="submit" value="Enviar">Enviar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1 text/html; charset=UTF-8" http-equiv="Content-Type">
+<link th:href="@{/libs/bootstrap.min.css}" href="../../libs/bootstrap.min.css" rel="stylesheet">
+<link th:href="@{/styles/main.css}" href="../../styles/main.css" rel="stylesheet">
+<script th:src="@{/libs/jquery-2.2.1.min.js}"  src="../../libs/jquery-2.2.1.min.js"></script>
+<script th:src="@{/libs/bootstrap.min.js}"  src="../../libs/bootstrap.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<title>Parque natural</title>
+</head>
+    
+<body
+style="background: url(../../img/background.jpg);" 
+th:style="'background: url(' + @̣{/img/background.jpg} + ');'" >
+	 <div class="container">
+         <div class="panel panel-default" id="panel">
+            <h1 class="panel-heading" id="cabecera">Parque Natural</h1>
+          	<div class="panel-body" id="cuerpoPagina">
+          	<h2>Elija una opción</h2>
+  					<div class="row">
+  						<div class="item col-md-4">
+  							<div class="thumbnail">
+  								<img th:src="@{/img/areas.jpg}" src="../../img/areas.jpg" class="img-responsive img-rounded" alt="Imágen que identifica la opcion areas">
+  									<div class="caption post-content">
+	  									<div class="infoThumbail panel panel-default">
+										  <div class="panel-body">
+										  <a href="/areas">
+										   	<h3>Áreas</h3>
+	                						<p>Ver, modificar y añadir áreas</p>
+	                					  </a> 
+										  </div>
+										 
+										</div>
+            						</div>
+  							</div>
+  						</div>
+	  						<div class="item col-md-4">
+	  							<div class="thumbnail">
+	  								<img th:src="@{/img/especies.jpg}" src="../../img/especies.jpg" class="img-responsive img-rounded" alt="Imágen que identifica la opcion de especies">
+	  								  <div class="caption post-content">
+	  									<div class="infoThumbail panel panel-default">
+										  <div class="panel-body">
+										   	<a href="/especies">
+										   		<h3>Especies</h3>
+	                							<p>Ver, modificar y añadir especies</p>
+										   	</a> 
+										  </div>
+										</div>
+            						</div>
+  								</div>
+	  						</div>
+  						<div class="item col-md-4">
+  							<div class="thumbnail">
+  								<img th:src="@{/img/personal.jpg}" src="../../img/personal.jpg" class="img-responsive img-rounded" alt="Imágen que identifica la opcion de ver personal">
+  								<div class="caption post-content">
+  									<div class="infoThumbail panel panel-default">
+										  <div class="panel-body">
+										  <a href="/personal">
+										   	<h3>Personal</h3>
+	                						<p>Ver, modificar y añadir personal</p> 
+	                					  </a>
+										  </div>
+									</div>
+           						</div>
+  							</div>
+  						</div>
+  					</div>
+        	</div>
+         </div> 
+    </div>
+</body>
+</html>

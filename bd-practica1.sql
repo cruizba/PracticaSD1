@@ -11,20 +11,20 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Schema parque
+-- Schema bd-practica1
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `parque` ;
+DROP SCHEMA IF EXISTS `bd-practica1` ;
 
 -- -----------------------------------------------------
--- Schema parque
+-- Schema bd-practica1
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `parque` DEFAULT CHARACTER SET utf8 ;
-USE `parque` ;
+CREATE SCHEMA IF NOT EXISTS `bd-practica1` DEFAULT CHARACTER SET utf8 ;
+USE `bd-practica1` ;
 
 -- -----------------------------------------------------
--- Table `parque`.`Especie`
+-- Table `bd-practica1`.`Especie`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `parque`.`Especie` (
+CREATE TABLE IF NOT EXISTS `bd-practica1`.`Especie` (
   `id_especie` INT NOT NULL AUTO_INCREMENT,
   `nombre_cientifico` VARCHAR(45) NOT NULL,
   `nombre_comun` VARCHAR(45) NOT NULL,
@@ -33,51 +33,51 @@ CREATE TABLE IF NOT EXISTS `parque`.`Especie` (
   PRIMARY KEY (`id_especie`))
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `id_especie_UNIQUE` ON `parque`.`Especie` (`id_especie` ASC);
+CREATE UNIQUE INDEX `id_especie_UNIQUE` ON `bd-practica1`.`Especie` (`id_especie` ASC);
 
 
 -- -----------------------------------------------------
--- Table `parque`.`Area`
+-- Table `bd-practica1`.`Area`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `parque`.`Area` (
+CREATE TABLE IF NOT EXISTS `bd-practica1`.`Area` (
   `id_area` INT NOT NULL AUTO_INCREMENT,
   `nombre_area` VARCHAR(45) NOT NULL,
   `extension` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_area`))
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `idArea_UNIQUE` ON `parque`.`Area` (`id_area` ASC);
+CREATE UNIQUE INDEX `idArea_UNIQUE` ON `bd-practica1`.`Area` (`id_area` ASC);
 
 
 -- -----------------------------------------------------
--- Table `parque`.`Especie_Areas`
+-- Table `bd-practica1`.`Especie_Areas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `parque`.`Especie_Areas` (
+CREATE TABLE IF NOT EXISTS `bd-practica1`.`Especie_Areas` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `especies_idEspecie` INT NOT NULL,
   `areas_idArea` INT NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `idArea`
     FOREIGN KEY (`areas_idArea`)
-    REFERENCES `parque`.`Area` (`id_area`)
-    ON DELETE NO ACTION
+    REFERENCES `bd-practica1`.`Area` (`id_area`)
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `idEspecie`
     FOREIGN KEY (`especies_idEspecie`)
-    REFERENCES `parque`.`Especie` (`id_especie`)
-    ON DELETE NO ACTION
+    REFERENCES `bd-practica1`.`Especie` (`id_especie`)
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `idEspecie_idx` ON `parque`.`Especie_Areas` (`especies_idEspecie` ASC);
+CREATE INDEX `idEspecie_idx` ON `bd-practica1`.`Especie_Areas` (`especies_idEspecie` ASC);
 
-CREATE INDEX `idArea` ON `parque`.`Especie_Areas` (`areas_idArea` ASC);
+CREATE INDEX `idArea` ON `bd-practica1`.`Especie_Areas` (`areas_idArea` ASC);
 
 
 -- -----------------------------------------------------
--- Table `parque`.`Contratado`
+-- Table `bd-practica1`.`Contratado`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `parque`.`Contratado` (
+CREATE TABLE IF NOT EXISTS `bd-practica1`.`Contratado` (
   `id_contratado` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `apellidos` VARCHAR(45) NOT NULL,
@@ -87,11 +87,25 @@ CREATE TABLE IF NOT EXISTS `parque`.`Contratado` (
   PRIMARY KEY (`id_contratado`))
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `idContratado_UNIQUE` ON `parque`.`Contratado` (`id_contratado` ASC);
+CREATE UNIQUE INDEX `idContratado_UNIQUE` ON `bd-practica1`.`Contratado` (`id_contratado` ASC);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-INSERT INTO `contratado` VALUES (1,'Raul','González Escribano','916438765','654678765','Vigilante'),(2,'Victoria','Jiménez Sánchez','913653487','643986754','Cuidadora'),(3,'Fernando','Álvarez Toledo','934572837','659345968','Vigilante');
+
+-- -----------------------------------------------------
+-- Insertions
+-- -----------------------------------------------------
+
+INSERT INTO `area` VALUES (5,'Valle alto','1800 ha'),(6,'Fuerte viento','1500 ha'),(7,'Rio sano','2000 ha');
+
+
+INSERT INTO `contratado` VALUES (2,'Nuria','Jiménez Sánchez','913653487','643986754','Gestión'),(3,'Fernando','Álvarez Toledo','934572837','659345968','Vigilancia'),(9,'Alfonso','Rodriguez','914569392','694303244','Gestión');
+
+
+INSERT INTO `especie` VALUES (8,'Sapo etiópico','Sapo','Animal','/img/especies/sapo.png'),(9,'Atelopus','Sapos stubfoot','Animal','/img/especies/atelopus.jpg'),(10,'Capensibufo','Sapo del Cabo','Animal','img/especies/capensibufo.jpg');
+
+
+INSERT INTO `especie_areas` VALUES (22,8,5),(23,8,6),(24,8,7),(25,9,6),(26,9,6),(27,10,7);

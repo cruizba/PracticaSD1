@@ -1,6 +1,8 @@
+
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Especies</title>
+	<title>Subir Imagen</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
 	<link th:href="@{/libs/bootstrap.min.css}" href="../../libs/bootstrap.min.css" rel="stylesheet"></link>
 	<link th:href="@{/styles/main.css}" href="../../styles/main.css" rel="stylesheet"></link>
@@ -11,11 +13,19 @@
 <body style="background: url(../../img/background.jpg);">
 	<div class="container">
 		<div class="panel panel-default" id="panel">
-			<h1 class="panel-heading" id="cabecera">La inserción se ha realizado con éxito</h1>
-			<a class="btn btn-default btn-lg" href="/especies">Volver</a>
+			<div class="panel-heading" id="cabecera">
+				<h1><a href="/">Parque Natural</a></h1>
+				<h1>Subir imagen de una especie</h1>
+			</div>
+			<div class="panel-body" id="cuerpoPagina">
+				<form class="form-horizontal" role="form" enctype="multipart/form-data" th:action="'/upload/' + ${especie.idEspecie}" method="post" >					
+					<input name="file" type="file" class="file btn btn-default btn-lg"></input>
+					<div class="divButton">
+						<button class="btn btn-default btn-lg" type="submit" value="Enviar">Enviar</button>
+					</div>
+				</form>
+			</div>
 		</div>
-		
 	</div>
-
 </body>
 </html>
