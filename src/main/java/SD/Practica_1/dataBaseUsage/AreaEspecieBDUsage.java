@@ -1,14 +1,18 @@
-package SD.Practica_1.dataBaseUsage;
-//package SD.Practica_1;
+//package SD.Practica_1.dataBaseUsage;
 //
 //
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.CommandLineRunner;
 //import org.springframework.stereotype.Controller;
 //
+//import SD.Practica_1.Entity.Area;
+//import SD.Practica_1.Entity.Especie;
+//import SD.Practica_1.repository.AreaRepository;
+//import SD.Practica_1.repository.EspecieRepository;
+//
 //@Controller
 //public class AreaEspecieBDUsage implements CommandLineRunner{
-//	
+//	res
 //	@Autowired
 //	private AreaRepository areaRep;
 //	
@@ -30,9 +34,9 @@ package SD.Practica_1.dataBaseUsage;
 //		area2 = new Area("Fuerte viento", "1500 ha");
 //		area3 = new Area("Rio sano", "2000 ha");
 //		
-//		especie1 = new Especie("Sapo etiópico","Sapo", "Animal",null);
-//		especie2 = new Especie("Atelopus", "Sapos stubfoot", "Animal",null);
-//		especie3 = new Especie("Capensibufo", "Sapo del Cabo", "Animal",null);
+//		especie1 = new Especie("Sapo etiópico","Sapo", "Animal","/img/especies/sapo.png");
+//		especie2 = new Especie("Atelopus", "Sapos stubfoot", "Animal","/img/especies/atelopus.jpg");
+//		especie3 = new Especie("Capensibufo", "Sapo del Cabo", "Animal","img/especies/capensibufo.jpg");
 //		
 //		//Establecemos la relación
 //		

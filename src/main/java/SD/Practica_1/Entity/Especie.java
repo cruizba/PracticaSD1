@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import SD.Practica_1.repository.AreaRepository;
+
 
 @Entity
 @Table(name="Especie")
@@ -88,6 +90,33 @@ public class Especie {
 	
 	public String toString(){
 		return String.format("Especie[nombreComun='%s', nombreCientifico='%s', Tipo='%s']", nombreComun, nombreCientifico, tipo);
+	}
+	
+	@Override
+	public boolean equals(Object object){
+		if(!(object instanceof Especie)){
+			return false;
+		}
+		Especie esp = (Especie) object;
+		if(esp.getIdEspecie() == this.getIdEspecie()){
+			return true;
+		}
+		return false;	
+	}
+	
+	public List<Area> areasNoContienenEspecie(AreaRepository areaRep){
+		
+		List<Area> todasAreas = areaRep.findAll();
+		List<Area> areasEspecie = this.getAreas();
+		List<Area> result = new ArrayList<Area>();
+		
+		for(Area e: todasAreas){
+			if(!areasEspecie.contains(e)){
+				result.add(e);
+			}
+		}
+		
+		return result;	
 	}
 
 

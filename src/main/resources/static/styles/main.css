@@ -88,6 +88,10 @@ th, td {
 	text-align: right;
 }
 
+.optionButton{
+	text-align: left;
+}
+
 .enlaceInsercion{
 	font-size: 25px;
 	text-align: center;
@@ -100,6 +104,7 @@ th, td {
 .volverButton{
 	
 }
+
 
 #cabecera{
     text-align: center;

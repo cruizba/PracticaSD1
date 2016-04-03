@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Insertar Área</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<link th:href="@{/libs/bootstrap.min.css}" href="../../libs/bootstrap.min.css" rel="stylesheet"></link>
+	<link th:href="@{/styles/main.css}" href="../../styles/main.css" rel="stylesheet"></link>
+	<script th:src="@{/libs/jquery-2.2.1.min.js}"  src="../../libs/jquery-2.2.1.min.js"></script>
+	<script th:src="@{/libs/bootstrap.min.js}"  src="../../libs/bootstrap.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'></link>
+</head>
+<body style="background: url(../../img/background.jpg);">
+	<div class="container">
+		<div class="panel panel-default" id="panel">
+			<h1 class="panel-heading" id="cabecera">Insertar Área</h1>
+			<div class="panel-body" id="cuerpoPagina">
+				<form class="form-horizontal" role="form" action="insertarAreaBD" method="post" >					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="nombre">Nombre: </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nombreArea" placeholder="Inserte aquí el nombre del area" size="45" maxlength="45" required="required"></input>
+                        </div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="apellidos">Extensión: </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="extension" placeholder="Inserte aquí los apellidos" size="45" maxlength="45" required="required"></input>
+                        </div>
+                    </div>
+					<div class="divButton">
+						<button class="btn btn-default btn-lg" type="submit" value="Enviar">Enviar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
